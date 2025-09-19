@@ -1,0 +1,114 @@
+
+    <!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="style.css">
+<title>Tableau Stage</title>
+<style>
+  table {
+    border-collapse: collapse;
+    width: 600px;
+    margin: 20px auto;
+  }
+  th {
+    background-color: #4169e1;
+    color: black;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    font-family: "Verdana", "Geneva", sans-serif;
+  }
+  td {
+    border: 1px solid #4169e1;
+    padding: 8px 10px;
+    font-size: 12px;
+    vertical-align: middle;
+    font-family: "Verdana", "Geneva", sans-serif;
+  }
+  .logo-cell {
+    width: 150px;
+    text-align: center;
+  }
+  img {
+    max-width: 100px;
+    height: auto;
+  }
+  table {
+  border: 2px solid black; /* Adds a border around the table */
+}
+
+</style>
+</head>
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th colspan="2">Période de stage : Du 27 Mai au 5 Juillet 2023</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td rowspan="2"><img src="lyceevilgenis.png" alt="Lycée Parc de Vilgénis" /></td>
+        <td>Contacter une entreprise</td>
+      </tr>
+      <tr>
+        <td>Remplir la feuille d’engagement (à télécharger de l’ENT)</td>
+      </tr>
+      <tr>
+        <td rowspan="3"><img src="btssio.png" alt="Logo BTS" /></td>
+        <td>Signature du responsable Entreprise</td>
+      </tr>
+      <tr>
+        <td>Signature du tuteur (Votre prof)</td>
+      </tr>
+      <tr>
+        <td>Délivrance convention de stage</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <label for="text">Nom :</label>
+  <input
+  type="text"
+  id="name"
+  name="name"
+  required
+  minlength="4"
+  maxlength="8"
+  size="10" /> <br>
+
+  <label for="text">Prénom :</label>
+  <input
+  type="text"
+  id="name"
+  name="name"
+  required
+  minlength="4"
+  maxlength="8"
+  size="10" /> <br>
+
+  <label for="date">Date :</label>
+<input
+  type="date"
+  id="date"
+  name="date"
+  required /> <br>
+
+
+<label for="adresse">Adresse postale :</label><br>
+<textarea id="adresse" name="adresse" rows="4" cols="40" required></textarea>
+<br>
+
+<select name="example">
+  <option value="option1">BTS 1</option>
+  <option value="option2">BTS 2</option>
+  <option value="option3">L3</option>
+  <input type="submit"value="Valider">
+  <input type="reset"value="Annuler">
+</select>
+
+
+</body>
+</html>
