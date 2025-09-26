@@ -1,27 +1,181 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page de TP rendu</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+<style>
+    /* ----------------- Styles généraux ----------------- */
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #1f1c2c, #928dab);
+        color: #fff;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+
+    h1 {
+        text-align: center;
+        font-family: 'Orbitron', sans-serif;
+        font-size: 3em;
+        margin: 20px 0;
+        color: #00f0ff;
+        text-shadow: 0 0 5px #00f0ff, 0 0 10px #00f0ff, 0 0 20px #00f0ff;
+        animation: glow 2s infinite alternate;
+    }
+
+    h3 {
+        text-align: center;
+        margin: 10px 0;
+        font-size: 2em;
+        text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff;
+    }
+
+    @keyframes glow {
+        from { text-shadow: 0 0 5px #00f0ff, 0 0 10px #00f0ff, 0 0 20px #00f0ff; }
+        to { text-shadow: 0 0 20px #00f0ff, 0 0 40px #00f0ff, 0 0 60px #00f0ff; }
+    }
+
+    /* ----------------- Menu déroulant ----------------- */
+    nav {
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+        margin-bottom: 50px;
+        flex-wrap: wrap;
+        z-index: 1;
+        position: relative;
+    }
+
+    .menu {
+        position: relative;
+        cursor: pointer;
+    }
+
+    .menu-title {
+        font-size: 1.3em;
+        padding: 12px 25px;
+        background: rgba(0,0,0,0.4);
+        border-radius: 12px;
+        transition: 0.3s;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        box-shadow: 0 0 5px #fff;
+    }
+
+    .menu-title:hover {
+        background: rgba(0,0,0,0.7);
+        box-shadow: 0 0 15px #fff, 0 0 30px #00f0ff, 0 0 45px #00f0ff;
+        transform: scale(1.05);
+    }
+
+    .menu-title::before {
+        content: "📂";
+    }
+
+    .menu:nth-child(2) .menu-title::before {
+        content: "🗂️";
+    }
+
+    .dropdown {
+        display: none;
+        position: absolute;
+        top: 110%;
+        left: 0;
+        background: rgba(0,0,0,0.85);
+        border-radius: 12px;
+        padding: 10px 0;
+        min-width: 180px;
+        z-index: 10;
+        box-shadow: 0 0 15px #000;
+        transition: all 0.3s ease;
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    .menu:hover .dropdown {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .dropdown a {
+        display: block;
+        padding: 12px 20px;
+        color: #fff;
+        text-decoration: none;
+        transition: 0.3s;
+        font-weight: bold;
+        text-shadow: 0 0 5px #000;
+    }
+
+    .dropdown a:hover {
+        background: rgba(255,255,255,0.1);
+        color: #ffeb3b;
+        text-shadow: 0 0 10px #ffeb3b, 0 0 20px #ffeb3b;
+        transform: scale(1.05);
+    }
+
+    /* ----------------- Fond animé ----------------- */
+    body::before {
+        content: "";
+        position: fixed;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(255,255,255,0.05) 1%, transparent 1%);
+        background-size: 60px 60px;
+        animation: moveBg 15s linear infinite;
+        z-index: 0;
+    }
+
+    @keyframes moveBg {
+        0% { transform: translate(0,0); }
+        100% { transform: translate(80px,80px); }
+    }
+
+    /* ----------------- Contenu centré ----------------- */
+    main {
+        position: relative;
+        z-index: 1;
+        padding: 20px;
+    }
+
+</style>
 </head>
 <body>
+    <header>
         <h1>Page de TP rendu</h1>
-        <h3>TP</h3>
-        <a href="TP 7.2/index.html">TP 7.2</a><br>
-        <a href="TP 7.1/index.html">TP 7.1</a><br>
-        <a href="TP 6/inscription.html">TP 6</a><br>
-        <a href="TP 5/index.html">TP 5</a><br>
-        <a href="TP 4/index.html">TP 4</a><br>
-		<a href="TP 3/index.html">TP 3</a><br>
-		<a href="TP 2/index.html">TP 2</a><br>
-		<a href="TP 1/index.html">TP 1</a><br>
+    </header>
 
-        <h3>Missions</h3>
-		<a href="Mission 2/index.html">Mission 2</a><br>
-        <a href="Mission 3/mission3.html">Mission 3</a><br>
-        
+    <main>
+        <nav>
+            <div class="menu">
+                <div class="menu-title">TP</div>
+                <div class="dropdown">
+                    <a href="TP 7.2/index.html">TP 7.2</a>
+                    <a href="TP 7.1/index.html">TP 7.1</a>
+                    <a href="TP 6/inscription.html">TP 6</a>
+                    <a href="TP 5/index.html">TP 5</a>
+                    <a href="TP 4/index.html">TP 4</a>
+                    <a href="TP 3/index.html">TP 3</a>
+                    <a href="TP 2/index.html">TP 2</a>
+                    <a href="TP 1/index.html">TP 1</a>
+                </div>
+            </div>
 
-    
+            <div class="menu">
+                <div class="menu-title">Missions</div>
+                <div class="dropdown">
+                    <a href="Mission 2/index.html">Mission 2</a>
+                    <a href="Mission 3/mission3.html">Mission 3</a>
+                </div>
+            </div>
+        </nav>
+    </main>
 </body>
 </html>
