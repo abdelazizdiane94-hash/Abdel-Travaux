@@ -1,0 +1,35 @@
+body {
+    font-family: "Georgia", serif;
+    margin: 0;
+    padding: 50px;
+    color: #2a2a2a;
+}
+
+.cv-container {
+    width: 1000px;
+    margin: auto;
+    background: #fffefb;
+    border: 4px solid #05044d;
+    border-radius: 5px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    position: relative;
+}
+
+.photo {
+    float: right;
+    width: 160px;
+    margin: 0 25px 20px 0;
+}
+
+.photo img {
+    width: 160px;
+    height: auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+
+b {
+    color: #05044d;
+}
+
