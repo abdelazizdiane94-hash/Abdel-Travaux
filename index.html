@@ -4,147 +4,117 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Page de TP rendu</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
 <style>
     /* ----------------- Styles généraux ----------------- */
+    :root {
+        --fond-principal: #f7f7f7;
+        --texte-principal: #222;
+        --accent: #0078d7;
+        --fond-menu: #fff;
+        --fond-dropdown: #f2f2f2;
+        --bordure: #ddd;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --fond-principal: #1e1e1e;
+            --texte-principal: #f2f2f2;
+            --accent: #4fa3ff;
+            --fond-menu: #2a2a2a;
+            --fond-dropdown: #333;
+            --bordure: #444;
+        }
+    }
+
     body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background: linear-gradient(135deg, #1f1c2c, #928dab);
-        color: #fff;
+        background: var(--fond-principal);
+        color: var(--texte-principal);
         margin: 0;
         padding: 0;
-        overflow-x: hidden;
+    }
+
+    header {
+        text-align: center;
+        padding: 30px 0 10px;
+        border-bottom: 1px solid var(--bordure);
     }
 
     h1 {
-        text-align: center;
-        font-family: 'Orbitron', sans-serif;
-        font-size: 3em;
-        margin: 20px 0;
-        color: #00f0ff;
-        text-shadow: 0 0 5px #00f0ff, 0 0 10px #00f0ff, 0 0 20px #00f0ff;
-        animation: glow 2s infinite alternate;
+        font-size: 2.2em;
+        margin: 0;
+        font-weight: 600;
+        color: var(--accent);
     }
 
-    h3 {
-        text-align: center;
-        margin: 10px 0;
-        font-size: 2em;
-        text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff;
-    }
-
-    @keyframes glow {
-        from { text-shadow: 0 0 5px #00f0ff, 0 0 10px #00f0ff, 0 0 20px #00f0ff; }
-        to { text-shadow: 0 0 20px #00f0ff, 0 0 40px #00f0ff, 0 0 60px #00f0ff; }
-    }
-
-    /* ----------------- Menu déroulant ----------------- */
+    /* ----------------- Menu ----------------- */
     nav {
         display: flex;
         justify-content: center;
-        gap: 50px;
-        margin-bottom: 50px;
         flex-wrap: wrap;
-        z-index: 1;
-        position: relative;
+        gap: 30px;
+        padding: 25px;
     }
 
     .menu {
         position: relative;
-        cursor: pointer;
     }
 
     .menu-title {
-        font-size: 1.3em;
-        padding: 12px 25px;
-        background: rgba(0,0,0,0.4);
-        border-radius: 12px;
-        transition: 0.3s;
+        font-size: 1.1em;
+        padding: 10px 20px;
+        background: var(--fond-menu);
+        border: 1px solid var(--bordure);
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background 0.2s, box-shadow 0.2s;
         display: flex;
         align-items: center;
-        gap: 10px;
-        box-shadow: 0 0 5px #fff;
+        gap: 8px;
     }
 
     .menu-title:hover {
-        background: rgba(0,0,0,0.7);
-        box-shadow: 0 0 15px #fff, 0 0 30px #00f0ff, 0 0 45px #00f0ff;
-        transform: scale(1.05);
-    }
-
-    .menu-title::before {
-        content: "📂";
-    }
-
-    .menu:nth-child(2) .menu-title::before {
-        content: "🗂️";
+        background: var(--fond-dropdown);
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
     .dropdown {
         display: none;
         position: absolute;
-        top: 110%;
+        top: 105%;
         left: 0;
-        background: rgba(0,0,0,0.85);
-        border-radius: 12px;
-        padding: 10px 0;
+        background: var(--fond-dropdown);
+        border: 1px solid var(--bordure);
+        border-radius: 6px;
+        padding: 5px 0;
         min-width: 180px;
         z-index: 10;
-        box-shadow: 0 0 15px #000;
-        transition: all 0.3s ease;
-        opacity: 0;
-        transform: translateY(-10px);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
 
     .menu:hover .dropdown {
         display: block;
-        opacity: 1;
-        transform: translateY(0);
     }
 
     .dropdown a {
         display: block;
-        padding: 12px 20px;
-        color: #fff;
+        padding: 10px 16px;
+        color: var(--texte-principal);
         text-decoration: none;
-        transition: 0.3s;
-        font-weight: bold;
-        text-shadow: 0 0 5px #000;
+        font-size: 0.95em;
+        transition: background 0.2s, color 0.2s;
     }
 
     .dropdown a:hover {
-        background: rgba(255,255,255,0.1);
-        color: #ffeb3b;
-        text-shadow: 0 0 10px #ffeb3b, 0 0 20px #ffeb3b;
-        transform: scale(1.05);
+        background: var(--accent);
+        color: #fff;
     }
 
-    /* ----------------- Fond animé ----------------- */
-    body::before {
-        content: "";
-        position: fixed;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: radial-gradient(circle, rgba(255,255,255,0.05) 1%, transparent 1%);
-        background-size: 60px 60px;
-        animation: moveBg 15s linear infinite;
-        z-index: 0;
-    }
-
-    @keyframes moveBg {
-        0% { transform: translate(0,0); }
-        100% { transform: translate(80px,80px); }
-    }
-
-    /* ----------------- Contenu centré ----------------- */
     main {
-        position: relative;
-        z-index: 1;
+        max-width: 900px;
+        margin: 0 auto;
         padding: 20px;
     }
-
 </style>
 </head>
 <body>
@@ -155,7 +125,7 @@
     <main>
         <nav>
             <div class="menu">
-                <div class="menu-title">TP</div>
+                <div class="menu-title">📘 TP</div>
                 <div class="dropdown">
                     <a href="TP 12/index.html">TP 12</a>
                     <a href="TP 11/index.html">TP 11</a>
@@ -174,7 +144,7 @@
             </div>
 
             <div class="menu">
-                <div class="menu-title">Missions</div>
+                <div class="menu-title">🧩 Missions</div>
                 <div class="dropdown">
                     <a href="Mission 2/index.html">Mission 2</a>
                     <a href="Mission 3/mission3.html">Mission 3</a>
@@ -186,5 +156,3 @@
     </main>
 </body>
 </html>
-
-
