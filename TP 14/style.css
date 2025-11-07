@@ -1,0 +1,103 @@
+body{
+    display: flex;
+    justify-content: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.fond{
+    box-shadow: 0 0 10px 0px #9b9b9b;
+    width: 60%;
+}
+
+.entete{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 25px;
+}
+
+.info{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 25px;
+    margin-left: 25px;
+}
+
+img{
+    float: left;
+    width: 10%;
+    margin: 25px;
+}
+
+input{
+    border: none;
+    margin-top: 5px;
+}
+
+#nomcol{
+    background-color: black;
+}
+
+.tableau{
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+table {
+  width: 80%;
+  margin-top: 10px;
+}
+
+th{
+    background-color: black;
+    color: white;
+    gap: 5px;
+}
+
+th, td {
+  padding: 8px;
+  text-align: center;
+}
+
+.boutons {
+  text-align: center;
+  margin-top: 15px;
+}
+
+button {
+  padding: 8px 15px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.total {
+  text-align: right;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+td > input{
+    background-color: #9b9b9b;
+}
+
+.read{
+    background-color: white;
+}
+
+@media print {
+.boutons {
+    display: none; /* cache les boutons à l'impression */
+}
+
+body {
+    background: white;
+}
+
+.fond {
+    box-shadow: none;
+}
+
+th{
+    color: rgb(0, 0, 0);
+}
+}

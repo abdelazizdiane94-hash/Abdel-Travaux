@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facture Apple</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="fond">
+        <div class="entete">
+        <img src="apple.png" alt=""><h3>Facture Apple</h3>
+            <div class="date">
+                <p>Date de création : 07/11/2025</p>
+                <p>N° Facture :</p>
+            </div>
+        </div>
+
+        <div class="info">
+            <div class="destinataire">
+                <h4><u>Déstinataire</u></h4>
+                <input type="text" placeholder="Nom"><br>
+                <input type="text" placeholder="Nom de la société"><br>
+                <input type="text" placeholder="Adresse Postale"><br>
+                <input type="text" placeholder="Téléphone"><br>
+                <input type="text" placeholder="Email"><br>
+            </div>
+            <div class="envoyer">
+                <h4><u>Envoyer à</u></h4>
+                <input type="text" placeholder="Nom"><br>
+                <input type="text" placeholder="Nom de la société"><br>
+                <input type="text" placeholder="Adresse Postale"><br>
+                <input type="text" placeholder="Téléphone"><br>
+                <input type="text" placeholder="Email"><br>
+            </div>
+        </div>
+
+        <div class="tableau">
+            <table>
+                <thead>
+                <tr>
+                    <th>Article :</th>
+                    <th>Quantité :</th>
+                    <th>Prix :</th>
+                    <th>Résultat :</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" id="art1"></td>
+                        <td><input type="number" id="qte1"></td>
+                        <td><input type="number" id="prix1"></td>
+                        <td><input type="text" id="res1" readonly></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="art2"></td>
+                        <td><input type="number" id="qte2"></td>
+                        <td><input type="number" id="prix2"></td>
+                        <td><input type="text" id="res2" readonly></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="art3"></td>
+                        <td><input type="number" id="qte3"></td>
+                        <td><input type="number" id="prix3"></td>
+                        <td><input type="text" id="res3" readonly></td>
+                    </tr>
+                    <tr >
+                        <td><input type="number" class="read" readonly></td>
+                        <td><input type="number" class="read" readonly></td>
+                        <td><input type="number" class="read" readonly></td>
+                        <td><input type="text" id="restotal" readonly></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="boutons">
+            <button onclick="calculer()">Résultat</button>
+            <button onclick="reinitialiser()">Annuler</button>
+            <button onclick="imprimer()">Imprimer</button>
+        </div>
+        
+    </div>
+</body>
+</html>
