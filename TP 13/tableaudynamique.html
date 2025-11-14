@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau Dynamique</title>
+    <link rel="stylesheet" href="tableau.css">
+</head>
+
+<body>
+    <h2>Tableau Dynamique</h2>
+
+    Nom: <br>
+    <input type="text" placeholder="Nom" name="nom" id="nom"> <br>
+    Age :<br>
+    <input type="text" placeholder="Age" name="age" id="age">
+    <br>
+    <br>
+
+    <table id="myTable">
+        <tr>
+            <td>Nom</td>
+            <td>Age</td>
+        </tr>
+        <tr>
+            <td>John</td>
+            <td>30</td>
+        </tr>
+        <tr>
+            <td>Jame</td>
+            <td>25</td>
+        </tr>
+    </table>
+
+    <button class="buttonAdd" onclick="addLigne()">Ajoutez une ligne</button>
+
+    <script>
+        function addLigne() {
+            // Récupérer la référence du tableau
+            var name = document.getElementById("nom").value;
+            var age = document.getElementById("age").value;
+
+            if (name == "" || age == "") {
+                alert("un des deux éléments n'est pas complet ou valide");
+            } else if (age < 10 || age > 20) {
+                alert("L'âge n'est pas valide");
+            } else {
+                var table = document.getElementById("myTable");
+                var newRow = table.insertRow(-1);
+                var cell1 = newRow.insertCell(0);
+                var cell2 = newRow.insertCell(1);
+                cell1.innerHTML = name;
+                cell2.innerHTML = age;
+            }
+        }
+    </script>
+
+</body>
+</html>
