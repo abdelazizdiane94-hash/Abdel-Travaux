@@ -1,0 +1,88 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--fond-principal);
+    color: var(--texte-principal);
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    text-align: center;
+    padding: 30px 0 10px;
+    border-bottom: 1px solid var(--bordure);
+}
+
+h1 {
+    font-size: 2.2em;
+    margin: 0;
+    font-weight: 600;
+    color: var(--accent);
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 25px;
+}
+
+.menu {
+    position: relative;
+}
+
+.menu-title {
+    font-size: 1.1em;
+    padding: 10px 20px;
+    background: var(--fond-menu);
+    border: 1px solid var(--bordure);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.menu-title:hover {
+    background: var(--fond-dropdown);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 105%;
+    left: 0;
+    background: var(--fond-dropdown);
+    border: 1px solid var(--bordure);
+    border-radius: 6px;
+    padding: 5px 0;
+    min-width: 180px;
+    z-index: 10;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.menu:hover .dropdown {
+    display: block;
+}
+
+.dropdown a {
+    display: block;
+    padding: 10px 16px;
+    color: var(--texte-principal);
+    text-decoration: none;
+    font-size: 0.95em;
+    transition: background 0.2s, color 0.2s;
+}
+
+.dropdown a:hover {
+    background: var(--accent);
+    color: #fff;
+}
+
+main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
