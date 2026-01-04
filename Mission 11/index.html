@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Module de facturation</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+<div class="facture">
+
+    <section class="facture-entete">
+        <div class="compagnie-info">
+            <h1>iCell</h1>
+            <p>Adresse : 40 Boulevard Haussmann, 75009 Paris</p>
+            <p>Téléphone : 01 84 27 59 63</p>
+            <p>Contact : icell.contact@gmail.com</p>
+            <p>Responsable : M.Diané</p>
+        </div>
+
+        <div class="facture-info">
+            <h2>FACTURE</h2>
+            <p>Date : <span id="dateFacture"></span></p>
+            <p>N° Facture : 2025-001</p>
+        </div>
+    </section>
+
+    <section class="infos-clients">
+        <div class="bloc">
+            <h3>Destinataire</h3>
+            <p>Nom</p>
+            <p>Société</p>
+            <p>Adresse</p>
+            <p>Téléphone</p>
+            <p>Email</p>
+        </div>
+
+        <div class="bloc">
+            <h3>Envoyée à</h3>
+            <p>Nom</p>
+            <p>Société</p>
+            <p>Adresse</p>
+            <p>Téléphone</p>
+            <p>Email</p>
+        </div>
+    </section>
+
+    <table id="table_colonnes">
+        <thead>
+        <tr>
+            <th>Description</th>
+            <th>Quantité</th>
+            <th>Prix unitaire (€)</th>
+            <th>Total (€)</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr class="row" id="modeleLigne">
+            <td><input type="text" class="input desc"></td>
+            <td><input type="number" class="input qte" value="0"></td>
+            <td><input type="number" class="input prix" value="0"></td>
+            <td><input type="text" class="input totalLigne" value="0" readonly></td>
+        </tr>
+
+        <tr class="row lastrow" id="lastLigne">
+            <td><input type="text" class="input desc"></td>
+            <td><input type="number" class="input qte" value="0"></td>
+            <td><input type="number" class="input prix" value="0"></td>
+            <td><input type="text" class="input totalLigne" value="0" readonly></td>
+        </tr>
+
+        </tbody>
+    </table>
+
+    <div class="remarques">
+        <p>Remarques / Instructions de paiement</p>
+        <textarea rows="4"></textarea>
+    </div>
+
+    <div class="bloc-totaux">
+
+        <div class="ligne-total">
+            <label>Sous-total</label>
+            <input type="text" id="sousTotal" readonly>
+        </div>
+
+        <div class="ligne-total">
+            <label>Remise (%)</label>
+            <input type="number" id="remise" value="0">
+        </div>
+
+        <div class="ligne-total">
+            <label>Sous-total après remise</label>
+            <input type="text" id="sousTotalRemise" readonly>
+        </div>
+
+        <div class="ligne-total">
+            <label>TVA (%)</label>
+            <input type="number" id="tauxImposition" value="20">
+        </div>
+
+        <div class="ligne-total">
+            <label>Taxe totale</label>
+            <input type="text" id="taxeTotale" readonly>
+        </div>
+
+        <div class="ligne-total">
+            <label>Frais supplémentaires</label>
+            <input type="number" id="fraisExpedition" value="0">
+        </div>
+
+        <div class="ligne-total solde">
+            <label>Solde dû (€)</label>
+            <input type="text" id="solde" readonly>
+        </div>
+
+    </div>
+
+    <footer class="actions">
+        <button onclick="calculate()">Calculer</button>
+        <button onclick="ajouterLigne()">Ajouter une ligne</button>
+        <button onclick="remplir()">Remplir automatiquement</button>
+        <button onclick="location.reload()">Annuler</button>
+    </footer>
+
+</div>
+
+</body>
+</html>
